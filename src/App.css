@@ -1,1 +1,22 @@
+@import url('https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap');
 @import "tailwindcss";
+
+.site-x-padding {
+	@apply px-4 sm:px-4 md:px-6 lg:px-6;
+}
+
+.site-y-padding {
+	@apply py-4 sm:py-4 md:py-6 lg:py-6;
+}
+
+.site-p-text {
+	@apply text-white uppercase text-[12px];
+}
+
+
+p, a, li, h1, h2, h3 {
+	font-family: "Geist", sans-serif;
+	font-style: normal;
+	font-optical-sizing: auto;
+	font-weight: 400;
+}

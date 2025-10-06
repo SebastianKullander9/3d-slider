@@ -1,11 +1,14 @@
-import "App.css";
+import "./App.css";
+import Carousel from "./components/ui/carousel/Carousel";
+import Header from "./components/ui/header";
 
 function App() {
 
     return (
-        <>
-			<h1 className="text-red-500">Hello World</h1>
-        </>
+		<section className="w-screen h-screen bg-black">
+			<Header />
+			<Carousel />
+		</section>
     )
 }
 
