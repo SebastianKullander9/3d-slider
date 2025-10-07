@@ -1,15 +1,25 @@
-import { useRef } from 'react';
-import {  useFrame } from '@react-three/fiber';
-import * as THREE from 'three';
+import { useRef } from "react";
+import {  useFrame } from "@react-three/fiber";
+import * as THREE from "three";
+import useSlidePosition from "../../hooks/useSlidePosition";
+import vertexShader from "../../../shaders/custom.vert.glsl?raw";
+import fragmentShader from "../../../shaders/custom.frag.glsl?raw";
 
-export default function ShaderPlane() {
+interface ShaderPlaneProps {
+    index: number;
+    color: [string, string];
+}
+
+export default function ShaderPlane({ index, color }: ShaderPlaneProps) {
     const meshRef = useRef<THREE.Mesh>(null);
     const materialRef = useRef<THREE.ShaderMaterial>(null);
+    const position = useSlidePosition(index, [0, 0, 0]);
     
     const uniforms = useRef({
         uTime: { value: 0 },
-        uColor1: { value: new THREE.Color("#ff006e") },
-        uColor2: { value: new THREE.Color("#8338ec") },
+        uSeed: { value: index * 500},
+        uColor1: { value: new THREE.Color(color[0]) },
+        uColor2: { value: new THREE.Color(color[1]) },
     });
     
     {/* centralize useFrame for better performance (into hook maybe?) */}
@@ -20,11 +30,10 @@ export default function ShaderPlane() {
     });
     
     return (
-        <mesh ref={meshRef}>
-            <planeGeometry args={[4, 4, 32, 32]} />
+        <mesh ref={meshRef} position={position}>
+            <planeGeometry args={[5, 7, 1, 1]} />
             <shaderMaterial
                 ref={materialRef}
-                {/* import/get shaders */}
                 vertexShader={vertexShader}
                 fragmentShader={fragmentShader}
                 uniforms={uniforms.current}
