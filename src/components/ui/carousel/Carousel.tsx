@@ -10,6 +10,7 @@ import useSlideStore from "../../store/sliderStore";
 export default function Carousel() {
     const sliderWrapperRef = useRef<HTMLDivElement>(null);
     const slideRef = useRef<HTMLDivElement>(null);
+    const lastOffsetRef = useRef<number>(0);
     const { setSlideSize, setScrollOffset } = useSlideStore();
 
     useEffect(() => {
@@ -37,8 +38,11 @@ export default function Carousel() {
         function animate() {
             slider.update();
             
-            setScrollOffset(slider.current);
-            console.log(slider.current);
+            const newOffset = slider.current;
+            if (Math.abs(newOffset - lastOffsetRef.current) > 0.000001) {
+                setScrollOffset(newOffset);
+                lastOffsetRef.current = newOffset;
+            }
 
             requestAnimationFrame(animate);
         };
@@ -49,9 +53,9 @@ export default function Carousel() {
     return (
         <div className="h-full flex items-center">  
             {/* HTML DOM SLIDE */}
-            <div ref={sliderWrapperRef} className="absolute w-screen h-1/2 flex flex-row overflow-hidden select-none cursor-grab z-[9999]">
+            <div ref={sliderWrapperRef} className="absolute w-screen h-1/2 flex flex-row overflow-hidden select-none cursor-grab z-[9999] touch-pan-x">
                 {data.map((slide, index) => 
-                    <Slide key={index} ref={slideRef} title={slide.title} index={index} />
+                    <Slide key={index} ref={index === 0 ? slideRef : null} title={slide.title} index={index} />
                 )}
             </div>
 

@@ -25,6 +25,13 @@ export default function Canvas3d() {
                     near: 0.1,
                     far: 1000,
                 }}
+                dpr={[1, 2]}
+                performance={{ min: 0.5 }}
+                gl={{
+                    antialias: false,
+                    alpha: true,
+                    powerPreference: "high-performance"
+                }}
             >
                 <WorldPerPixelUpdater />
                 <Environment preset="dawn"/>

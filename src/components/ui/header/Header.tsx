@@ -1,6 +1,6 @@
 export default function Header() {
     return (
-        <nav className="w-full h-12 flex flex-row justify-between items-center site-x-padding site-p-text">
+        <nav className="fixed w-full h-12 flex flex-row justify-between items-center site-x-padding site-p-text">
             <div>
                 <h1>slider</h1>
             </div>

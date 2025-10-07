@@ -8,7 +8,9 @@ function wrap(value: number, min: number, max: number) {
 }
 
 export default function useSlidePosition(index: number, basePosition: [number, number, number]) {
-    const { slideWidth, worldPerPixel, scrollOffset } = useSlideStore();
+    const slideWidth = useSlideStore(state => state.slideWidth);
+    const worldPerPixel = useSlideStore(state => state.worldPerPixel);
+    const scrollOffset = useSlideStore(state => state.scrollOffset);
     const totalSlides = data.length;
     const [x, y, z] = basePosition;
 
