@@ -26,5 +26,5 @@ export default function useSlidePosition(index: number, basePosition: [number, n
         newX = wrap(newX, -totalWorldWidth / 2, totalWorldWidth / 2);
 
         return [-newX, y, z];
-    }, [x, y, z, index, slideWidth, worldPerPixel, scrollOffset, totalSlides]);
+    }, [x, y, z, index, slideWidth, worldPerPixel, scrollOffset]);
 }

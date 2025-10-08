@@ -8,7 +8,6 @@ export default function Scene() {
     const shaderMaterialsRef = useRef<THREE.ShaderMaterial[]>([]);
     const modelsRef = useRef<THREE.Group[]>([]);
 
-
     useFrame(({ clock }) => {
         const time = clock.elapsedTime;
 

@@ -53,14 +53,14 @@ export default function Carousel() {
     return (
         <div className="h-full flex items-center">  
             {/* HTML DOM SLIDE */}
-            <div ref={sliderWrapperRef} className="absolute w-screen h-1/2 flex flex-row overflow-hidden select-none cursor-grab z-[9999] touch-pan-x">
+            <div ref={sliderWrapperRef} className="absolute w-screen h-4/5 sm:h-1/2 flex flex-row overflow-hidden select-none cursor-grab z-[9999] touch-pan-x">
                 {data.map((slide, index) => 
                     <Slide key={index} ref={index === 0 ? slideRef : null} title={slide.title} index={index} />
                 )}
             </div>
 
             {/* WEBGL SLIDE */}
-            <div className="absolute w-full h-1/2 pointer-events-none">
+            <div className="absolute w-full h-4/5 sm:h-1/2 pointer-events-none">
                 <Canvas3d />
             </div>
         </div>

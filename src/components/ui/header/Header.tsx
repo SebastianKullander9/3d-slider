@@ -5,7 +5,9 @@ export default function Header() {
                 <h1>slider</h1>
             </div>
             <div>
-                <h1>Github</h1>
+                <a target="_blank" href="https://github.com/SebastianKullander9/3d-slider">
+                    <h1>Github</h1>
+                </a>
             </div>
         </nav>
     );

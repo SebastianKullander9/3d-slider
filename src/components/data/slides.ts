@@ -2,7 +2,7 @@ export const data = [
     {
         title: "Cherry",
         modelUrl: "/Pineapple.glb",
-        scale: 0.7,
+        scale: 0.6,
         rotation: [0, 0, 0] as [number, number, number],
         position: [0, -3.3, 3] as [number, number, number],
         color: ["#FFCC33", "#00CC33"] as [string, string] // golden yellow, bright green
