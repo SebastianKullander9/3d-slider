@@ -1,4 +1,4 @@
-# Three.js Spinning Images
+# 3d-slider
 
 ![Demo Screenshot](public/slider.png)
 
